@@ -15,8 +15,8 @@ function getFileSizeandName(input) {
 mapboxgl.accessToken = 'pk.eyJ1IjoicnViZW4iLCJhIjoiYlBrdkpRWSJ9.JgDDxJkvDn3us36aGzR6vg';
 var map = new mapboxgl.Map({
   container: 'map',
-  zoom: 4,
-  center: [0, 0],
+  zoom: 12,
+  center: [-110.9449,31.2423],
   style: 'mapbox://styles/mapbox/basic-v9',
   hash: false
 });
@@ -27,7 +27,7 @@ $("a").click(function(event) {
 
 function mapline(num, id, geojson) {
   if (geojson.features.length > 0) {
-    $('#date').text(geojson.features[0].properties.timestamp.split('T')[0]);
+    $('#date').text(geojson.features[0].properties['@timestamp'].split('T')[0]);
     $('#changeset').text(id.split('.')[0]);
     map.addLayer({
       "id": "route" + id,
